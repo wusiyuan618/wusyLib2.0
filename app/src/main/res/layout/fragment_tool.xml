@@ -1,0 +1,28 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_total"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.wusy.wusylibrary.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.wusy.wusylibrary.view.moduleComponents.ModuleView
+                android:id="@+id/styleModule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.wusy.wusylibrary.view.moduleComponents.ModuleView
+                android:id="@+id/templateModule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
