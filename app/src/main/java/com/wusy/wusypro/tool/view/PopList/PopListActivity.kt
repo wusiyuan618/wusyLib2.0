@@ -1,6 +1,5 @@
-package com.wusy.wusypro.tool.view
+package com.wusy.wusypro.tool.view.PopList
 
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wusy.wusylibrary.base.BaseActivity
@@ -12,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_basic_recycl.*
 
 class PopListActivity : BaseActivity() {
     lateinit var adapter: BasicRecycleAdapter
+    lateinit var createPopUtil: CreatePopUtil
     override fun getContentViewId(): Int {
         return R.layout.activity_basic_recycl
     }
@@ -59,15 +59,7 @@ class PopListActivity : BaseActivity() {
         })
         list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
             title = "TwoLevelWheelChoicePop"
-            information = "(二级滚轮选择器，从底部弹出，IOS样式)"
-        })
-        list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
-            title = "MultistageLevelWheelChoicePop"
-            information = "(多级滚轮选择器，从底部弹出，IOS样式)"
-        })
-        list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
-            title = "OneLevelMultipleChoiceRecyclerPop"
-            information = "(一级多选列表弹窗：中部侧弹出，可用于添加)"
+            information = "(二级滚轮选择器，从底部弹出，一二级数据联动)"
         })
         list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
             title = "MultistageMultipleChoiceRecyclerPop"
@@ -86,33 +78,32 @@ class PopListActivity : BaseActivity() {
             title = "DateChoiceCalendarPop"
             information = "(日期选择器，日历样式)"
         })
-        list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
-            title = "FileChoicePop"
-            information = "(附件选择弹窗，从底部弹出，IOS样式)"
-        })
-        list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
-            title = "UploadProgressPop"
-            information = "(进度显示弹窗，可用于数据上传)"
-        })
         return list
     }
 
     private fun initItemClick() {
+        createPopUtil = CreatePopUtil(this)
         adapter.setOnRecyclerItemClickLitener(object :
             BaseRecyclerAdapter.onRecyclerItemClickLitener {
             override fun onRecyclerItemClick(view: RecyclerView.ViewHolder?, position: Int) {
                 when (adapter.list[position].title) {
                     "ConfirmPop" -> {
-                        showConfirmPop()
+                        createPopUtil.showConfirmPop()
                     }
                     "SingleRecyclerChoicePop" -> {
-                        showSingleRecyclerChoicePop()
+                        createPopUtil.showSingleRecyclerChoicePop()
                     }
-                    "SingleEasyChoicePop"->{
-                        showSingleEasyChoicePop()
+                    "SingleEasyChoicePop" -> {
+                        createPopUtil.showSingleEasyChoicePop()
                     }
-                    "SingleCardChoicePop"->{
-                        showCardChoicePop()
+                    "SingleCardChoicePop" -> {
+                        createPopUtil.showCardChoicePop()
+                    }
+                    "OneLevelWheelChoicePop" -> {
+                        createPopUtil.showWheelChoicePop(1)
+                    }
+                    "TwoLevelWheelChoicePop" -> {
+                        createPopUtil.showWheelChoicePop(2)
                     }
                 }
             }
@@ -124,65 +115,5 @@ class PopListActivity : BaseActivity() {
         })
     }
 
-    private var confirmPop: ConfirmPop? = null
-    private fun showConfirmPop() {
-        if (confirmPop == null) confirmPop=ConfirmPop(this@PopListActivity)
 
-        confirmPop!!.listener = object : ConfirmPop.OnBtnClickListener {
-            override fun clickOk() {
-                showToast("点击了确认按钮")
-                confirmPop!!.dismiss()
-            }
-
-            override fun clickCancel() {
-                showToast("点击了取消按钮")
-                confirmPop!!.dismiss()
-            }
-        }
-        confirmPop!!.disListener = object : ConfirmPop.OnDismissListener {
-            override fun onDismiss() {
-                showToast("弹窗关闭")
-            }
-        }
-        confirmPop!!.showPopupWindow()
-    }
-
-    private var singleRecyclerChoicePop: SingleRecyclerChoicePop? = null
-    private fun showSingleRecyclerChoicePop() {
-        if (singleRecyclerChoicePop == null) singleRecyclerChoicePop =
-            SingleRecyclerChoicePop(this@PopListActivity)
-        singleRecyclerChoicePop!!.listener=object:SingleRecyclerChoicePop.OnItemClickListener{
-            override fun onItemClick(bean: PopSelectBean) {
-                showToast("您选中了：${bean.name}")
-            }
-        }
-        singleRecyclerChoicePop!!.showPopupWindow()
-    }
-
-    private var singleEasyChoicePop: SingleEasyChoicePop? = null
-    private fun showSingleEasyChoicePop() {
-        if (singleEasyChoicePop == null) singleEasyChoicePop =
-            SingleEasyChoicePop(this@PopListActivity)
-        singleEasyChoicePop!!.listener=object:SingleEasyChoicePop.OnItemClickListener{
-            override fun onClickTop() {
-                showToast("您点击了同意")
-            }
-
-            override fun onClickBottom() {
-                showToast("您点击了拒绝")
-            }
-        }
-        singleEasyChoicePop!!.showPopupWindow(titleView)
-    }
-    private var cardChoicePop: CardChoicePop? = null
-    private fun showCardChoicePop() {
-        if (cardChoicePop == null) cardChoicePop =
-            CardChoicePop(this@PopListActivity)
-        cardChoicePop!!.listener=object:CardChoicePop.OnItemClickListener{
-            override fun onItemClick(bean: PopSelectBean, position: Int) {
-                showToast("你选中了：${bean.name}")
-            }
-        }
-        cardChoicePop!!.showPopupWindow()
-    }
 }

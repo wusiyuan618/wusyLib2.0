@@ -69,6 +69,7 @@ dependencies {
     api 'com.github.razerdp:BasePopup:2.1.9'
     api 'com.orhanobut:logger:2.2.0'//Logger
     api 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'cn.aigestudio.wheelpicker:WheelPicker:1.1.3'
 
 }
 repositories {

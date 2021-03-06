@@ -29,4 +29,6 @@
     <color name="pressed_click">#eeeeee</color>
     <color name="progressbg">#B8EBDD</color>
 
+    <color name="normalTextColor">#333333</color>
+    <color name="unCheckTextColor">#DFD5D5</color>
 </resources>

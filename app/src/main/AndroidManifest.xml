@@ -34,7 +34,7 @@
         </activity>
         <!-- Home   -->
         <!-- Tool   -->
-        <activity android:name=".tool.view.PopListActivity"/>
+        <activity android:name=".tool.view.PopList.PopListActivity"/>
         <activity android:name=".tool.view.BasicRecycleActivity"/>
         <provider
             android:name="androidx.core.content.FileProvider"

@@ -3,6 +3,7 @@ package com.wusy.wusypro.tool.view
 import com.wusy.wusylibrary.view.moduleComponents.ModuleViewBean
 import com.wusy.wusypro.R
 import com.wusy.wusypro.home.view.MainActivity
+import com.wusy.wusypro.tool.view.PopList.PopListActivity
 
 object ModelViewDataUtil {
     fun initStyleModuleData():ArrayList<ModuleViewBean>{
