@@ -62,7 +62,7 @@ class PopListActivity : BaseActivity() {
             information = "(二级滚轮选择器，从底部弹出，一二级数据联动)"
         })
         list.add(BasicRecycleAdapter.BasicRecycleBean().apply {
-            title = "MultistageMultipleChoiceRecyclerPop"
+            title = "SelectItemFromListPop"
             information = "(多级多选列表弹窗：左右侧弹出，一个list实现，通过数据控制显隐，可用于筛选)"
         })
 
@@ -104,6 +104,9 @@ class PopListActivity : BaseActivity() {
                     }
                     "TwoLevelWheelChoicePop" -> {
                         createPopUtil.showWheelChoicePop(2)
+                    }
+                    "SelectItemFromListPop" -> {
+                        createPopUtil.showSelectItemFromListPop()
                     }
                 }
             }

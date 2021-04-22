@@ -70,4 +70,14 @@ class CreatePopUtil(activity:BaseActivity){
         }
         wheelChoicePop.showPopupWindow()
     }
+    fun showSelectItemFromListPop() {
+        val selectItemFromListPop =  SelectItemFromListPop(mA)
+        selectItemFromListPop.init()
+        selectItemFromListPop.listener=object: SelectItemFromListPop.OnItemClickListener{
+            override fun onItemClick(list: ArrayList<SelectItemFromListPop.ACMSelectPopBean>) {
+                mA.showToast("你选中了:${list.size}个")
+            }
+        }
+        selectItemFromListPop.showPopupWindow()
+    }
 }
