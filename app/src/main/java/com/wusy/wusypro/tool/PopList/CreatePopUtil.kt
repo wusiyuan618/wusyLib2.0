@@ -1,7 +1,10 @@
-package com.wusy.wusypro.tool.view.PopList
+package com.wusy.wusypro.tool.PopList
 
+import com.haibin.calendarview.Calendar
+import com.orhanobut.logger.Logger
 import com.wusy.wusylibrary.base.BaseActivity
 import com.wusy.wusylibrary.pop.*
+import java.text.SimpleDateFormat
 
 class CreatePopUtil(activity:BaseActivity){
     var mA=activity
@@ -79,5 +82,25 @@ class CreatePopUtil(activity:BaseActivity){
             }
         }
         selectItemFromListPop.showPopupWindow()
+    }
+    fun showDateChoicePop() {
+        val dateChoicePop =  DateChoicePop(mA)
+        dateChoicePop.listener=object: DateChoicePop.onClickOkListener{
+            override fun clickOk(startTime: String, endTime: String) {
+                mA.showToast("开始时间:${startTime},结束时间:${endTime}")
+            }
+
+        }
+        dateChoicePop.showPopupWindow()
+    }
+    fun showCaledarPop() {
+        val caledarPop =  CaledarPop(mA,object:CaledarPop.OnUpdateListener{
+            override fun updateView(calendar: Calendar?) {
+                val dft = SimpleDateFormat("yyyy-MM-dd")
+                mA.showToast(dft.format(calendar?.timeInMillis))
+            }
+
+        })
+        caledarPop.showPopupWindow()
     }
 }

@@ -34,8 +34,8 @@
         </activity>
         <!-- Home   -->
         <!-- Tool   -->
-        <activity android:name=".tool.view.PopList.PopListActivity"/>
-        <activity android:name=".tool.view.BasicRecycleActivity"/>
+        <activity android:name=".tool.PopList.PopListActivity"/>
+        <activity android:name=".tool.BasicRecycleList.BasicRecycleListActivity"/>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.wusy.fileprovider"

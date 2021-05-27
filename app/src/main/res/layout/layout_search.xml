@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/edSearch"
+        android:background="@drawable/btn_search"
+        android:gravity="center"
+        android:layout_margin="12dp"
+        android:hint="输入项目名称"
+        android:textSize="11sp"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+</LinearLayout>

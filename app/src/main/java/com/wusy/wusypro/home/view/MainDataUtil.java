@@ -6,7 +6,7 @@ import android.content.Context;
 import com.wusy.wusylibrary.view.bottomSelect.BottomSelectBean;
 import com.wusy.wusypro.R;
 import com.wusy.wusypro.me.view.MeFragment;
-import com.wusy.wusypro.tool.view.ToolFragment;
+import com.wusy.wusypro.tool.ToolFragment;
 
 
 import java.util.ArrayList;

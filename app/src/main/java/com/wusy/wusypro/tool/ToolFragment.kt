@@ -1,4 +1,4 @@
-package com.wusy.wusypro.tool.view
+package com.wusy.wusypro.tool
 
 import android.graphics.Color
 import android.view.View
