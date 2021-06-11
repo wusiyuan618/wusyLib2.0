@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.wusy.wusylibrary.R;
 import com.wusy.wusylibrary.util.CommonUtil;
+import com.wusy.wusylibrary.util.DataUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,7 +122,7 @@ public class BottomSelectView extends LinearLayout {
                         changeSelectItem(list, bean);
                         changeShowFragment(layout, list, bean, manager);
                     }
-                    if (!CommonUtil.isNull(bean.getListener())) {
+                    if (!DataUtil.isNull(bean.getListener())) {
                         bean.getListener().clickListener();
                     }
                 }

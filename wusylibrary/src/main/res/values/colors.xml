@@ -31,4 +31,8 @@
 
     <color name="normalTextColor">#333333</color>
     <color name="unCheckTextColor">#DFD5D5</color>
+
+    <color name="colorText">#333333</color>
+    <color name="colorTextSelect">#56D7BE</color>
+    <color name="wheelNormalItem">#DFD5D5</color>
 </resources>

@@ -91,7 +91,6 @@ public class OkHttpUtil {
                         final ResultCallBack callback) {
         showLog("正在进行Get请求，url：" + url);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        if(Token.equals("")) Token="admin";
         Request.Builder builder = new Request.Builder()
                 .url(url)
                 .addHeader("Authorization",Token);
@@ -115,7 +114,6 @@ public class OkHttpUtil {
         if(!json.equals("")) showLog("作为body上传的json："+json);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody requestBody = RequestBody.create(JSON, json);
-        if(Token.equals("")) Token="admin";
         Request.Builder builder = new Request.Builder()
                 .url(url)
                 .post(requestBody)
@@ -146,7 +144,7 @@ public class OkHttpUtil {
      * @param activity
      * @param callback 请求结果回调
      */
-    public void asynPost(String url, final Activity activity,String token ,Map<String, String> maps,
+    public void asynPost(String url, final Activity activity,Map<String, String> maps,
                          final ResultCallBack callback) {
         showLog("正在进行Post请求，url：" + url + "\n上传的值是：" + maps.toString());
         FormBody.Builder formBody = new FormBody.Builder();
@@ -165,7 +163,7 @@ public class OkHttpUtil {
     /**
      * Post直接提交JSON字符串
      */
-    public void anysPost(String url,String token,String json,final ResultCallBack callback){
+    public void asynPost(String url,String json,final ResultCallBack callback){
         showLog("正在进行Post请求，url：" + url + "\n上传的值是：" + json);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody requestBody = RequestBody.create(JSON, json);
@@ -180,7 +178,7 @@ public class OkHttpUtil {
     /**
      * Post直接提交JSON字符串
      */
-    public void anysPost(String url,String token,HashMap<String,String> maps,String json,final ResultCallBack callback){
+    public void asynPost(String url,String token,HashMap<String,String> maps,String json,final ResultCallBack callback){
         showLog("正在进行Post请求，url：" + url + "\n上传的值是：" + json);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody requestBody = RequestBody.create(JSON, json);
@@ -197,13 +195,9 @@ public class OkHttpUtil {
                 .build();
         deliveryResult(callback, request, null);
     }
-    public void asynPost(String url,String token, Map<String, String> maps,
-                         final ResultCallBack callback) {
-        asynPost(url,null,token,maps,callback);
-    }
     public void asynPost(String url, Map<String, String> maps,
                          final ResultCallBack callback) {
-        asynPost(url,null,"",maps,callback);
+        asynPost(url,null,maps,callback);
     }
     /**
      * 单文件上传
@@ -549,7 +543,7 @@ public class OkHttpUtil {
                 String type = getMIMEType(f);
       /* 设置intent的file与MimeType */
                 if(Build.VERSION.SDK_INT>=24){
-                    Uri contenturi= FileProvider.getUriForFile(context, "com.hjl.artisan.fileProvider",f);
+                    Uri contenturi= FileProvider.getUriForFile(context, "com.wusy.wusypro",f);
                     intent.setDataAndType(contenturi,type);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, contenturi);
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

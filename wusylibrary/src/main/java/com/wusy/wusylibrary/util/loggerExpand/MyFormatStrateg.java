@@ -1,6 +1,7 @@
 package com.wusy.wusylibrary.util.loggerExpand;
 
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 
@@ -123,7 +124,7 @@ public class MyFormatStrateg implements FormatStrategy {
         }
 
         @NonNull
-        public MyFormatStrateg build() {
+        public MyFormatStrateg build(Context context) {
             if (date == null) {
                 date = new Date();
             }
@@ -131,7 +132,7 @@ public class MyFormatStrateg implements FormatStrategy {
                 dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss.SSS", Locale.UK);
             }
             if (logStrategy == null) {
-                String folder =  LoggerSetting.saveDir;
+                String folder =  LoggerSetting.getFileDir(context);
                 HandlerThread ht = new HandlerThread("AndroidFileLogger." + folder);
                 ht.start();
                 Handler handler = new MyLogStrategy.WriteHandler(ht.getLooper(), folder, MAX_BYTES);

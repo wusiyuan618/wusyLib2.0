@@ -1,4 +1,6 @@
 package com.wusy.wusylibrary.util.loggerExpand;
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -10,8 +12,8 @@ public class MyDiskLogAdapter implements LogAdapter {
     private final MyFormatStrateg formatStrategy;
 
 
-    public MyDiskLogAdapter(){
-        formatStrategy = MyFormatStrateg.newBuilder().build();
+    public MyDiskLogAdapter(Context context){
+        formatStrategy = MyFormatStrateg.newBuilder().build(context);
     }
 
     @Override

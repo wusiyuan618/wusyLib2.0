@@ -36,9 +36,10 @@
         <!-- Tool   -->
         <activity android:name=".tool.PopList.PopListActivity"/>
         <activity android:name=".tool.BasicRecycleList.BasicRecycleListActivity"/>
+        <activity android:name=".tool.CardStyleActivity"/>
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.wusy.fileprovider"
+            android:authorities="com.wusy.wusypro"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

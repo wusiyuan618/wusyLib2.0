@@ -21,6 +21,9 @@ import com.wusy.wusypro.app.Contants
 import kotlinx.android.synthetic.main.activity_basic_recycl.*
 import kotlinx.android.synthetic.main.layout_search.*
 
+/**
+ *
+ */
 class BasicRecycleListActivity : BaseActivity() {
     private lateinit var model: ApplicationModel
     private lateinit var adapter:BasicRecycleListAdapter
@@ -36,6 +39,7 @@ class BasicRecycleListActivity : BaseActivity() {
 
         model = ApplicationModel()
         adapter = BasicRecycleListAdapter(this)
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
         refreshLayout.setOnRefreshListener {
@@ -103,22 +107,23 @@ class BasicRecycleListActivity : BaseActivity() {
     }
     inner class BasicRecycleListAdapter(context:Context) : BaseRecyclerAdapter<ProgramBean.DataBean.RowsBean>(context) {
         override fun onMyCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
-            return ToolSelectProViewHolder(
+            return BasicRecycleListViewHolder(
                 LayoutInflater.from(context)
                     .inflate(R.layout.item_basic_recycl, parent, false)
             )
         }
 
         override fun onMyBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-            if (holder is ToolSelectProViewHolder) {
-                val thisHolder = holder as ToolSelectProViewHolder
+
+            if (holder is BasicRecycleListViewHolder) {
+                val thisHolder = holder as BasicRecycleListViewHolder
                 list[position]?.run {
                     thisHolder.tvName.text=this.programName
                 }
             }
         }
     }
-    inner class ToolSelectProViewHolder(itemView: View): BaseViewHolder(itemView) {
+    inner class BasicRecycleListViewHolder(itemView: View): BaseViewHolder(itemView) {
         val tvName: TextView = itemView.findViewById(R.id.tvName)
     }
 }

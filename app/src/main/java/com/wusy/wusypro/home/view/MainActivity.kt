@@ -3,7 +3,10 @@ package com.wusy.wusypro.home.view
 import android.Manifest
 import android.graphics.Color
 import androidx.core.content.FileProvider
+import com.orhanobut.logger.Logger
 import com.wusy.wusylibrary.base.BaseActivity
+import com.wusy.wusylibrary.util.loggerExpand.LoggerSetting
+import com.wusy.wusylibrary.util.loggerExpand.MyDiskLogAdapter
 import com.wusy.wusylibrary.util.permissions.PermissionsManager
 import com.wusy.wusylibrary.util.permissions.PermissionsResultAction
 import com.wusy.wusypro.R
@@ -30,7 +33,9 @@ class MainActivity : BaseActivity() {
         )
         bottomSelectView.setBackgroundColor(Color.WHITE)
         requestPermissions()
+
     }
+
     private fun requestPermissions() {
         if (!//写入权限
                 PermissionsManager.getInstance().hasAllPermissions(

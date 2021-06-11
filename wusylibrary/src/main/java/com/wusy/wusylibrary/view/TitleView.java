@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.wusy.wusylibrary.R;
 import com.wusy.wusylibrary.util.CommonUtil;
+import com.wusy.wusylibrary.util.DataUtil;
 
 /**
  * Created by DalaR on 2017/11/20.
@@ -111,7 +112,7 @@ public class TitleView extends LinearLayout {
     public TitleView showMoreButton(boolean isShow,OnClickListener listener){
         if(isShow) {
             ll_moreimg.setVisibility(VISIBLE);
-            if (!CommonUtil.isNull(listener)) ll_moreimg.setOnClickListener(listener);
+            if (!DataUtil.isNull(listener)) ll_moreimg.setOnClickListener(listener);
         }else{
             ll_moreimg.setVisibility(INVISIBLE);
         }
@@ -158,7 +159,7 @@ public class TitleView extends LinearLayout {
             tv_ok.setText(text);
             ll_ok.setVisibility(VISIBLE);
             ll_moreimg.setVisibility(GONE);
-            if (!CommonUtil.isNull(listener)) ll_ok.setOnClickListener(listener);
+            if (!DataUtil.isNull(listener)) ll_ok.setOnClickListener(listener);
         }else{
             ll_ok.setVisibility(GONE);
         }

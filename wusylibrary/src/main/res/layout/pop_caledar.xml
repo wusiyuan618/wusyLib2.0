@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_total"
+    android:layout_width="275dp"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:padding="15dp"
+        android:src="@mipmap/icon_close" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/ivTurnUp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:src="@mipmap/btn_select_left" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ivTurnUp"
+            android:textColor="#ff333333"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/ivTurnDown"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tvDate"
+            android:padding="5dp"
+            android:src="@mipmap/btn_selecte_right" />
+    </RelativeLayout>
+
+    <com.haibin.calendarview.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFF"
+        app:current_month_lunar_text_color="#CFCFCF"
+        app:max_year="2025"
+        app:min_year="2019"
+        app:select_mode="single_mode"
+        app:other_month_lunar_text_color="#999999"
+        app:other_month_text_color="#999999"
+        app:selected_lunar_text_color="#CFCFCF"
+        app:selected_text_color="#fff"
+        app:selected_theme_color="#56D7BE"
+        app:month_view="com.wusy.wusylibrary.pop.MeiZuMonthView"
+        app:year_view_month_text_color="#ff0000"
+        app:year_view_month_text_size="20sp"
+        app:year_view_scheme_color="#f17706" />
+
+</LinearLayout>

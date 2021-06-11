@@ -8,6 +8,8 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.wusy.wusylibrary.util.CommonUtil;
+import com.wusy.wusylibrary.util.DataUtil;
+import com.wusy.wusylibrary.util.FileUtil;
 import com.wusy.wusylibrary.util.OkHttpUtil;
 
 import java.io.File;
@@ -40,7 +42,7 @@ public class UpdateService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 
-		if (CommonUtil.isNull(intent)) {
+		if (DataUtil.isNull(intent)) {
 			stopSelf();
 			Log.d("UpService", intent + "--------------------");
 		} else {
@@ -48,8 +50,8 @@ public class UpdateService extends Service {
 			file_name = app_name + ".apk";
 			patchUrl = patchUrl + app_name + ".patch";
 			// 创建文件
-			CommonUtil.createFile(app_name + ".patch");
-			CommonUtil.createFile(file_name);
+			FileUtil.createFile(app_name + ".patch");
+			FileUtil.createFile(file_name);
 			updateFile = new File(updateDir + "/" + app_name + ".patch");
 			if(flag==1)flag=2;
 			broadCast = new Intent();

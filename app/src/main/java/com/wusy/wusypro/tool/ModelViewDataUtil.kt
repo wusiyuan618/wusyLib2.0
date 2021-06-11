@@ -13,6 +13,11 @@ object ModelViewDataUtil {
             R.mipmap.icon_home_selected,"弹窗样式",
             PopListActivity::class.java)
         list.add(jdgx)
+
+        val cardStyle=ModuleViewBean(R.mipmap.icon_home_selected,"卡片样式",
+            CardStyleActivity::class.java)
+        list.add(cardStyle)
+
         return list
     }
     fun initTemplateModuleData():ArrayList<ModuleViewBean>{
@@ -20,6 +25,7 @@ object ModelViewDataUtil {
         val jdgx=ModuleViewBean(R.mipmap.icon_home_selected,"基础列表",
                 BasicRecycleListActivity::class.java)
         list.add(jdgx)
+
         return list
     }
 }
