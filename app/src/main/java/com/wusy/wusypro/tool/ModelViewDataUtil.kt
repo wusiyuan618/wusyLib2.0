@@ -26,6 +26,29 @@ object ModelViewDataUtil {
                 BasicRecycleListActivity::class.java)
         list.add(jdgx)
 
+        val twsc=ModuleViewBean(R.mipmap.icon_home_selected,"图文上传",
+            BasicRecycleListActivity::class.java)
+        list.add(twsc)
+
+        val wzzyy=ModuleViewBean(R.mipmap.icon_home_selected,"文字转语音",
+            BasicRecycleListActivity::class.java)
+        list.add(wzzyy)
+
+        val ble=ModuleViewBean(R.mipmap.icon_home_selected,"BLE蓝牙工具",
+            BasicRecycleListActivity::class.java)
+        list.add(ble)
+
+        val ckts=ModuleViewBean(R.mipmap.icon_home_selected,"串口调试工具",
+            BasicRecycleListActivity::class.java)
+        list.add(ckts)
+
+        val udp=ModuleViewBean(R.mipmap.icon_home_selected,"UDP调试工具",
+            BasicRecycleListActivity::class.java)
+        list.add(udp)
+
+        val socket=ModuleViewBean(R.mipmap.icon_home_selected,"Socket实例",
+            BasicRecycleListActivity::class.java)
+        list.add(socket)
         return list
     }
 }
