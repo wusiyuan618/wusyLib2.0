@@ -5,6 +5,7 @@
     android:id="@+id/layout_total"
     android:orientation="vertical">
     <com.wusy.wusylibrary.view.TitleView
+        android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

@@ -26,8 +26,8 @@ object ModelViewDataUtil {
                 BasicRecycleListActivity::class.java)
         list.add(jdgx)
 
-        val twsc=ModuleViewBean(R.mipmap.icon_home_selected,"图文上传",
-            BasicRecycleListActivity::class.java)
+        val twsc=ModuleViewBean(R.mipmap.icon_home_selected,"附件上传",
+            UploadFileActivity::class.java)
         list.add(twsc)
 
         val wzzyy=ModuleViewBean(R.mipmap.icon_home_selected,"文字转语音",

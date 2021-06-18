@@ -5,6 +5,10 @@
     android:id="@+id/layout_total"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <com.wusy.wusylibrary.view.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +19,7 @@
         app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 
-        <LinearLayoutz
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -96,6 +100,6 @@
                     />
 
             </RelativeLayout>
-        </LinearLayoutz>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
