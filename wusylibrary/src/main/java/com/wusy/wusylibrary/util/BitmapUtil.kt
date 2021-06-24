@@ -3,7 +3,10 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.util.Log
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 /**
  *
@@ -43,7 +46,32 @@ object BitmapUtils {
         options.inJustDecodeBounds = false
         return BitmapFactory.decodeByteArray(bos.toByteArray(), 0, bos.size(), options)
     }
+    fun decodeBitmap(bitmap: Bitmap, reqWidth: Int, reqHeight: Int,savePath:String){
+        var options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight)
+        options.inJustDecodeBounds = false
+        var bos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos)
+        BitmapFactory.decodeByteArray(bos.toByteArray(), 0, bos.size(), options)
+        var quality = 90
+        while (bos.toByteArray().size / 1024 > 512) {  //循环判断如果压缩后图片是否大于100kb,大于继续压缩
+            bos.reset()//重置baos即清空baos
+            //第一个参数 ：图片格式 ，第二个参数： 图片质量，100为最高，0为最差  ，第三个参数：保存压缩后的数据的流
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, bos)//这里压缩options%，把压缩后的数据存放到baos中
+            quality -= 10//每次都减少10
+        }
 
+        try {
+            val fos = FileOutputStream(File(savePath))//将压缩后的图片保存的本地上指定路径中
+            fos.write(bos.toByteArray())
+            fos.flush()
+            fos.close()
+        } catch (e: Exception) {
+            Log.e("wsy", "compressImage: ", e)
+        }
+//        return BitmapFactory.decodeByteArray(bos.toByteArray(), 0, bos.size(), options)
+    }
     fun decodeBitmapFromFile(path: String, reqWidth: Int, reqHeight: Int): Bitmap {
         var options = BitmapFactory.Options()
         options.inJustDecodeBounds = true
