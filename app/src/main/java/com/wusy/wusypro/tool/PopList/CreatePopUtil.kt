@@ -83,6 +83,17 @@ class CreatePopUtil(activity:BaseActivity){
         }
         selectItemFromListPop.showPopupWindow()
     }
+    fun showTreePop() {
+        val treePop =  TreePop(mA)
+        treePop.init()
+        treePop.listener=object: TreePop.OnItemClickListener{
+            override fun onItemClick(list: ArrayList<TreePop.TreePopBean>) {
+                mA.showToast("选择了${list.size}项")
+            }
+
+        }
+        treePop.showPopupWindow()
+    }
     fun showDateChoicePop() {
         val dateChoicePop =  DateChoicePop(mA)
         dateChoicePop.listener=object: DateChoicePop.onClickOkListener{

@@ -1,4 +1,4 @@
-package com.hjl.artisan.tool.view
+package com.wusy.wusylibrary.activity.uploadFile
 
 import android.app.Activity
 import android.content.Intent

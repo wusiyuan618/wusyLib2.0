@@ -7,6 +7,15 @@ import com.wusy.wusypro.tool.BasicRecycleList.BasicRecycleListActivity
 import com.wusy.wusypro.tool.PopList.PopListActivity
 
 object ModelViewDataUtil {
+    fun initToolModuleData():ArrayList<ModuleViewBean>{
+        val list=ArrayList<ModuleViewBean>()
+        val jdgx=ModuleViewBean(
+            R.mipmap.icon_home_selected,"打卡工具",
+            SignActivity::class.java)
+        list.add(jdgx)
+
+        return list
+    }
     fun initStyleModuleData():ArrayList<ModuleViewBean>{
         val list=ArrayList<ModuleViewBean>()
         val jdgx=ModuleViewBean(
@@ -26,9 +35,6 @@ object ModelViewDataUtil {
                 BasicRecycleListActivity::class.java)
         list.add(jdgx)
 
-        val twsc=ModuleViewBean(R.mipmap.icon_home_selected,"附件上传",
-            UploadFileActivity::class.java)
-        list.add(twsc)
 
         val wzzyy=ModuleViewBean(R.mipmap.icon_home_selected,"文字转语音",
             BasicRecycleListActivity::class.java)

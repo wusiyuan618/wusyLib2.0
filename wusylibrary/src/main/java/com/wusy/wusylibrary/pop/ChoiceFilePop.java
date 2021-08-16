@@ -6,13 +6,11 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 
-
-import com.hjl.artisan.app.CameraUtil;
-import com.hjl.artisan.tool.view.LocationFileSelectActivity;
+import com.huantansheng.easyphotos.EasyPhotos;
+import com.wusy.wusylibrary.activity.easyPhoto.GlideEngine;
+import com.wusy.wusylibrary.util.CameraUtil;
+import com.wusy.wusylibrary.activity.uploadFile.LocationFileSelectActivity;
 import com.wusy.wusylibrary.R;
-import com.wusy.wusylibrary.activity.uploadFile.camera.CameraActivity;
-import com.wusy.wusylibrary.activity.uploadFile.localAum.common.LocalImageHelper;
-import com.wusy.wusylibrary.activity.uploadFile.localAum.ui.LocalAlbum;
 
 import razerdp.basepopup.BasePopupWindow;
 
@@ -20,9 +18,7 @@ public class ChoiceFilePop extends BasePopupWindow {
     Activity context;
     public int checkAlnum = 0x01;
     public int checkFile = 0x02;
-
-    public String type = "";
-
+    public int maxSelectCount=1;
     public ChoiceFilePop(Activity context) {
         super(context);
         this.context = context;
@@ -31,9 +27,9 @@ public class ChoiceFilePop extends BasePopupWindow {
         findViewById(R.id.tvCancel).setOnClickListener(v -> dismiss());
         findViewById(R.id.viewCancel).setOnClickListener(v -> dismiss());
         findViewById(R.id.tvAlbumMultiple).setOnClickListener(v -> {
-            LocalImageHelper.getInstance().clear();
-            Intent intent = new Intent(context, LocalAlbum.class);
-            context.startActivityForResult(intent, checkAlnum);
+            EasyPhotos.createAlbum(context,false,false,GlideEngine.getInstance())
+                    .setCount(maxSelectCount)//参数说明：最大可选数，默认1
+                    .start(checkAlnum);
             dismiss();
         });
 
@@ -42,28 +38,21 @@ public class ChoiceFilePop extends BasePopupWindow {
             dismiss();
         });
 
-
         findViewById(R.id.tvCamera).setOnClickListener(v -> {
-            if (type.equals("")) {
-                CameraUtil util = new CameraUtil(context);
-                util.gotoCaptureRawOnly(context);
-                dismiss();
-            } else if (type.equals("人脸")) {
-                CameraActivity.startMe(context, 6, CameraActivity.MongolianLayerType.FACE);
-                dismiss();
-            } else if (type.equals("身份证正面")) {
-                CameraActivity.startMe(context, 6, CameraActivity.MongolianLayerType.IDCARD_POSITIVE);
-                dismiss();
-            }
+            CameraUtil util = new CameraUtil(context);
+            util.gotoCaptureRawOnly(context);
+            dismiss();
         });
     }
-    public void chooseFile(int requestCode){
+
+    public void chooseFile(int requestCode) {
         Intent intent = new Intent();
         intent.setClass(context, LocationFileSelectActivity.class);
         context.startActivityForResult(intent, requestCode);
     }
-    public void setShowFile(boolean showFile){
-        if(showFile) findViewById(R.id.tvFile).setVisibility(View.VISIBLE);
+
+    public void setShowFile(boolean showFile) {
+        if (showFile) findViewById(R.id.tvFile).setVisibility(View.VISIBLE);
         else findViewById(R.id.tvFile).setVisibility(View.GONE);
     }
 
@@ -82,4 +71,7 @@ public class ChoiceFilePop extends BasePopupWindow {
         return createPopupById(R.layout.pop_choice_file);
     }
 
+    public void setMaxSelectCount(int maxSelectCount) {
+        this.maxSelectCount = maxSelectCount;
+    }
 }

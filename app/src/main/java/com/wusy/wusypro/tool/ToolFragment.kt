@@ -10,6 +10,8 @@ import com.wusy.wusypro.R
 class ToolFragment : BaseFragment(){
     private lateinit var styleModule: ModuleView
     private lateinit var templateModule: ModuleView
+    private lateinit var toolModule: ModuleView
+
 
     private lateinit var titleView: TitleView
 
@@ -17,6 +19,7 @@ class ToolFragment : BaseFragment(){
         styleModule=view!!.findViewById(R.id.styleModule)
         titleView=view.findViewById(R.id.titleView)
         templateModule=view.findViewById(R.id.templateModule)
+        toolModule=view.findViewById(R.id.toolModule)
 
     }
 
@@ -50,6 +53,15 @@ class ToolFragment : BaseFragment(){
             templateModule.visibility=View.VISIBLE
             templateModule.setTitle("模板专区", Color.BLACK)
                     .showRecycelerView(context,templateModuleList,null,null)
+        }
+
+        val toolModuleList= ModelViewDataUtil.initToolModuleData()
+        if(styleModuleList.size==0){
+            toolModule.visibility=View.GONE
+        }else{
+            toolModule.visibility=View.VISIBLE
+            toolModule.setTitle("工具专区", Color.BLACK)
+                .showRecycelerView(context,toolModuleList,null,null)
         }
     }
 }

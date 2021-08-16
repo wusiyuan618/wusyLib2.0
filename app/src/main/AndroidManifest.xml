@@ -37,10 +37,12 @@
         <activity android:name=".tool.PopList.PopListActivity"/>
         <activity android:name=".tool.BasicRecycleList.BasicRecycleListActivity"/>
         <activity android:name=".tool.CardStyleActivity"/>
-        <activity android:name=".tool.UploadFileActivity"/>
+        <activity android:name=".tool.SignActivity"/>
+        <activity android:name="com.wusy.wusylibrary.activity.uploadFile.LocationFileSelectActivity"/>
+
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.wusy.wusypro"
+            android:authorities="com.wusy.wusypro.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

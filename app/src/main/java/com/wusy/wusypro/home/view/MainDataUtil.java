@@ -41,7 +41,7 @@ public class MainDataUtil {
 
         //首页构建数据
         BottomSelectBean home = new BottomSelectBean();
-        home.setSelect(true);
+        home.setSelect(false);
         home.setTitle("首页");
         home.setNormalIcon(R.mipmap.icon_home_normal);
         home.setSelectIcon(R.mipmap.icon_home_selected);
@@ -50,7 +50,7 @@ public class MainDataUtil {
         });
         //工具构建数据
         BottomSelectBean tool = new BottomSelectBean();
-        tool.setSelect(false);
+        tool.setSelect(true);
         tool.setTitle("工具");
         tool.setNormalIcon(R.mipmap.icon_home_normal);
         tool.setSelectIcon(R.mipmap.icon_home_selected);

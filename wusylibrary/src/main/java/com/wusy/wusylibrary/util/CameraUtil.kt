@@ -1,4 +1,4 @@
-package com.hjl.artisan.app
+package com.wusy.wusylibrary.util
 
 import android.Manifest
 import android.app.Activity
@@ -8,17 +8,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import com.wusy.wusylibrary.base.Constant
-import com.wusy.wusylibrary.pop.ChoiceFilePop
-import com.wusy.wusylibrary.util.BitmapUtils
-import com.wusy.wusylibrary.util.FileUtil
-import com.wusy.wusylibrary.util.ImgUtil
 import com.wusy.wusylibrary.util.permissions.PermissionsManager
 import com.wusy.wusylibrary.util.permissions.PermissionsResultAction
 import java.io.*
@@ -39,7 +33,7 @@ class CameraUtil(context: Context) {
     companion object {
         var imageFile: File? = null     //拍照后保存的照片
         var imgUri: Uri? = null         //拍照后保存的照片的uri
-        val AUTHORITY = "com.hjl.artisan.fileProvider" //FileProvider的签名(后面会介绍)
+        val AUTHORITY = "com.wusy.wusypro.fileProvider" //FileProvider的签名
         val REQUEST_CODE_CAPTURE_RAW = 6 //startActivityForResult时的请求码
     }
 

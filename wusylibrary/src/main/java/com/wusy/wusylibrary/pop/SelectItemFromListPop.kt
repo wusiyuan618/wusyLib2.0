@@ -63,7 +63,7 @@ class SelectItemFromListPop(context: Context) : BasePopupWindow(context) {
     }
 
     private fun initTestData(): ArrayList<ACMSelectPopBean> {
-        var list = ArrayList<ACMSelectPopBean>()
+        val list = ArrayList<ACMSelectPopBean>()
         list.add(ACMSelectPopBean().apply {
             id = "1"
             showStatus = 1
@@ -571,7 +571,7 @@ class SelectItemFromListPop(context: Context) : BasePopupWindow(context) {
             val tvName: TextView = view.findViewById(R.id.tvName)
             fun setVisibility(visibility: Int) {
                 itemView.visibility = visibility
-                var params = itemView.layoutParams as (RecyclerView.LayoutParams)
+                val params = itemView.layoutParams as (RecyclerView.LayoutParams)
                 if (visibility == View.VISIBLE) {
                     params.width = RecyclerView.LayoutParams.MATCH_PARENT
                     params.height = RecyclerView.LayoutParams.WRAP_CONTENT

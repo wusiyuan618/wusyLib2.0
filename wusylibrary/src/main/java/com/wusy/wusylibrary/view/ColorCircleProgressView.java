@@ -162,7 +162,7 @@ public class ColorCircleProgressView extends View {
 
         /*圆环的大小及是否圆角*/
         mCircleStrokeWith = typedArray.getDimension(R.styleable.ColorCircleProgressView_circle_stroke_width, dp2px(5));
-        mIsRound = typedArray.getBoolean(R.styleable.ColorCircleProgressView_round, true);
+        mIsRound = typedArray.getBoolean(R.styleable.ColorCircleProgressView_round2, true);
 
         /*Point的颜色和大小*/
         mPointColor = typedArray.getColor(R.styleable.ColorCircleProgressView_point_color, Color.WHITE);

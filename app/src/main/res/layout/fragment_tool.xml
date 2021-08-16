@@ -15,6 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.wusy.wusylibrary.view.moduleComponents.ModuleView
+                android:id="@+id/toolModule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <com.wusy.wusylibrary.view.moduleComponents.ModuleView
                 android:id="@+id/styleModule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

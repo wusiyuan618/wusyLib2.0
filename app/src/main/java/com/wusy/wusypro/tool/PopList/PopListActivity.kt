@@ -72,6 +72,10 @@ class PopListActivity : BaseActivity() {
             title = "DateChoiceCalendarPop"
             information = "(日期选择器，日历样式)"
         })
+        list.add(PopListAdapter.PopListBean().apply {
+            title = "TreePop"
+            information = "多级树形样式"
+        })
         return list
     }
 
@@ -107,6 +111,9 @@ class PopListActivity : BaseActivity() {
                     }
                     "DateChoiceCalendarPop" -> {
                         createPopUtil.showCaledarPop()
+                    }
+                    "TreePop" -> {
+                        createPopUtil.showTreePop()
                     }
                 }
             }

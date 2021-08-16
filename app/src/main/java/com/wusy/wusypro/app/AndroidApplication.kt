@@ -7,7 +7,6 @@ import com.wusy.wusylibrary.util.SharedPreferencesUtil
 import com.wusy.wusylibrary.util.loggerExpand.LoggerSetting
 import com.wusy.wusylibrary.util.loggerExpand.MyDiskLogAdapter
 import com.wusy.wusylibrary.util.permissions.PermissionsManager
-import com.wusy.wusylibrary.util.permissions.PermissionsResultAction
 import com.wusy.wusypro.BuildConfig
 
 class AndroidApplication : BaseApplication() {
@@ -15,6 +14,7 @@ class AndroidApplication : BaseApplication() {
         super.onCreate()
         initService()
         initLoggerDis()
+
     }
     private fun initService(){
         if(SharedPreferencesUtil.getInstance(this).getData(Contants.ServiceIp,"")!=""){

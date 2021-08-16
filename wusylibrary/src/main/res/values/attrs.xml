@@ -14,7 +14,7 @@
         <attr format="dimension" name="view_padding"/>
         <!--定义圆环的大小，是否圆角-->
         <attr format="dimension" name="circle_stroke_width"/>
-        <attr format="boolean" name="round"/>
+        <attr format="boolean" name="round2"/>
         <!--定义游标的大小和颜色 -->
         <attr format="color" name="point_color"/>
         <attr format="dimension" name="point_radio"/>
