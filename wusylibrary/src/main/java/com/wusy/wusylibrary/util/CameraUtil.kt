@@ -13,8 +13,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import com.orhanobut.logger.Logger
 import com.wusy.wusylibrary.util.permissions.PermissionsManager
 import com.wusy.wusylibrary.util.permissions.PermissionsResultAction
+import permissions.dispatcher.NeedsPermission
+import permissions.dispatcher.RuntimePermissions
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,6 +64,7 @@ class CameraUtil(context: Context) {
                     activity.startActivityForResult(intent, REQUEST_CODE_CAPTURE_RAW) //调起系统相机
                 } else {
                     Toast.makeText(activity, "打开相机失败，需要获取相机权限", Toast.LENGTH_SHORT).show()
+
                     PermissionsManager.getInstance()
                         .requestPermissionsIfNecessaryForResult(activity,
                             arrayOf(Manifest.permission.CAMERA),
@@ -73,7 +77,7 @@ class CameraUtil(context: Context) {
                                 }
 
                                 override fun onDenied(permission: String) {
-
+                                    Logger.i("msg---${permission}")
                                 }
                             })
                 }
@@ -167,13 +171,13 @@ class CameraUtil(context: Context) {
             val ori = ImgUtil.getBitmapRotateAngle(file.path)
             Log.e("tag", "savebmp2sdcard: $ori")
             var temp = System.currentTimeMillis()
-            var bitmap = BitmapFactory.decodeFile(file.absolutePath)
+            val bitmap = BitmapFactory.decodeFile(file.absolutePath)
             BitmapUtils.decodeBitmap(bitmap, 1080, 1080, file.path)
             Log.i("wsy", file.length().toString())
             Log.e("tag", "savebmp2sdcard: " + file.path + "\n" + file.absolutePath)
 //            ImgUtil.compressImage( ImgUtil.oriBitmap(file.path, ImgUtil.getBitmapRotateAngle(file.path)))
-            var callBackBitmap = ImgUtil.oriBitmap(bitmap, ori)
-            var callBackFile = compressImage(callBackBitmap, 800)
+            val callBackBitmap = ImgUtil.oriBitmap(bitmap, ori)
+            val callBackFile = compressImage(callBackBitmap, 800)
             Log.d("TAG", "送出图片大小  ${callBackBitmap.width} * ${callBackBitmap.height}")
             listener.compressImageComplete(callBackBitmap, callBackFile)
         }

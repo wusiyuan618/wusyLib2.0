@@ -13,8 +13,6 @@ class AndroidApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         initService()
-        initLoggerDis()
-
     }
     private fun initService(){
         if(SharedPreferencesUtil.getInstance(this).getData(Contants.ServiceIp,"")!=""){
@@ -23,16 +21,5 @@ class AndroidApplication : BaseApplication() {
             URLUtil.baseUrl = "${if (BuildConfig.BUILD_TYPE == "release") "https://www.hjlapp.com/" else "https://t.hjlapp.com/"}"
         }
     }
-    private fun initLoggerDis() {
-        /**
-         * 配置Logger存文件
-         */
-        if(PermissionsManager.getInstance().hasPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-            LoggerSetting.fileName = "wusyProLogger"
-            Logger.addLogAdapter(MyDiskLogAdapter(this))//保存到文件
-            Logger.i("Logger本地日志模块初始化成功")
-        }else{
-            Logger.e("Logger本地日志模块初始化失败，没有给存储权限")
-        }
-    }
+
 }

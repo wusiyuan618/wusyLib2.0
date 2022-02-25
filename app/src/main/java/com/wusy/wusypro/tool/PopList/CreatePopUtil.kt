@@ -76,24 +76,24 @@ class CreatePopUtil(activity:BaseActivity){
     fun showSelectItemFromListPop() {
         val selectItemFromListPop =  SelectItemFromListPop(mA)
         selectItemFromListPop.init()
-        selectItemFromListPop.listener=object: SelectItemFromListPop.OnItemClickListener{
-            override fun onItemClick(list: ArrayList<SelectItemFromListPop.ACMSelectPopBean>) {
-                mA.showToast("你选中了:${list.size}个")
-            }
+    selectItemFromListPop.listener=object: SelectItemFromListPop.OnItemClickListener{
+        override fun onItemClick(list: ArrayList<SelectItemFromListPop.ACMSelectPopBean>) {
+            mA.showToast("你选中了:${list.size}个")
         }
-        selectItemFromListPop.showPopupWindow()
     }
-    fun showTreePop() {
-        val treePop =  TreePop(mA)
-        treePop.init()
-        treePop.listener=object: TreePop.OnItemClickListener{
-            override fun onItemClick(list: ArrayList<TreePop.TreePopBean>) {
-                mA.showToast("选择了${list.size}项")
-            }
+    selectItemFromListPop.showPopupWindow()
+}
+fun showTreePop() {
+    val treePop =  TreePop(mA)
+    treePop.init()
+    treePop.listener=object: TreePop.OnItemClickListener{
+        override fun onItemClick(list: ArrayList<TreePop.TreePopBean>) {
+            mA.showToast("选择了${list.size}项")
+        }
 
-        }
-        treePop.showPopupWindow()
     }
+    treePop.showPopupWindow()
+}
     fun showDateChoicePop() {
         val dateChoicePop =  DateChoicePop(mA)
         dateChoicePop.listener=object: DateChoicePop.onClickOkListener{

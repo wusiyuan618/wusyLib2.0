@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
@@ -44,4 +44,6 @@ dependencies {
     implementation project(path: ':wusylibrary')
     implementation 'com.android.support:multidex:1.0.3'
 
+    implementation "com.github.permissions-dispatcher:permissionsdispatcher:4.9.1"
+    kapt  "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.1"
 }
