@@ -86,3 +86,9 @@
                 }
             })
     }
+
+**比较**
+
+PermissionsDispatcher采用了注解注入的方式，使得代码更流畅简介。同时回调丰富，使用也便捷。
+
+PermissionsManager源码在手，可控。可以在任意地方调用request权限。而PermissionsDispatcher会依赖Activity和Fragment。
