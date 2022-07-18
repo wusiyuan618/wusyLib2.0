@@ -39,6 +39,9 @@
         <activity android:name=".tool.CardStyleActivity"/>
         <activity android:name=".tool.SignActivity"/>
         <activity android:name="com.wusy.wusylibrary.activity.uploadFile.LocationFileSelectActivity"/>
+        <activity android:name=".jetpackTest.lifecycleTest.LifeCycleTestView"/>
+        <activity android:name=".jetpackTest.viewModelWithLiveData.ViewModelWithLiveDataTestView"/>
+        <activity android:name=".study.AdsorptionActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

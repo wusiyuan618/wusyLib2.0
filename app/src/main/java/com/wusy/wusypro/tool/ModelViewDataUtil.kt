@@ -3,6 +3,9 @@ package com.wusy.wusypro.tool
 import com.wusy.wusylibrary.view.moduleComponents.ModuleViewBean
 import com.wusy.wusypro.R
 import com.wusy.wusypro.home.view.MainActivity
+import com.wusy.wusypro.jetpackTest.lifecycleTest.LifeCycleTestView
+import com.wusy.wusypro.jetpackTest.viewModelWithLiveData.ViewModelWithLiveDataTestView
+import com.wusy.wusypro.study.AdsorptionActivity
 import com.wusy.wusypro.tool.BasicRecycleList.BasicRecycleListActivity
 import com.wusy.wusypro.tool.PopList.PopListActivity
 
@@ -35,7 +38,9 @@ object ModelViewDataUtil {
                 BasicRecycleListActivity::class.java)
         list.add(jdgx)
 
-
+        val xdxglb=ModuleViewBean(R.mipmap.icon_home_selected,"吸顶效果列表",
+            AdsorptionActivity::class.java)
+        list.add(xdxglb)
         val wzzyy=ModuleViewBean(R.mipmap.icon_home_selected,"文字转语音",
             BasicRecycleListActivity::class.java)
         list.add(wzzyy)
@@ -55,6 +60,14 @@ object ModelViewDataUtil {
         val socket=ModuleViewBean(R.mipmap.icon_home_selected,"Socket实例",
             BasicRecycleListActivity::class.java)
         list.add(socket)
+
+        val lifecycle=ModuleViewBean(R.mipmap.icon_home_selected,"lifecycle实例",
+            LifeCycleTestView::class.java)
+        list.add(lifecycle)
+
+        val viewModelWithLiveDataTestView=ModuleViewBean(R.mipmap.icon_home_selected,"ViewModel实例",
+            ViewModelWithLiveDataTestView::class.java)
+        list.add(viewModelWithLiveDataTestView)
         return list
     }
 }

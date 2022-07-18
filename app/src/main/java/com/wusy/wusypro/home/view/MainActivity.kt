@@ -33,21 +33,23 @@ class MainActivity : BaseActivity() {
         showPermissionWithPermissionCheck()
         bottomSelectView.setBackgroundColor(Color.WHITE)
 
-        PermissionsManager.getInstance()
-            .requestPermissionsIfNecessaryForResult(this,
-                arrayOf(Manifest.permission.CAMERA),
-                object : PermissionsResultAction() {
-                    override fun onGranted() {
-                       Logger.i("onGranted")
-                    }
-
-                    override fun onDenied(permission: String) {
-                        Logger.i("msg---${permission}")
-                    }
-                })
+//        PermissionsManager.getInstance()
+//            .requestPermissionsIfNecessaryForResult(this,
+//                arrayOf(Manifest.permission.CAMERA),
+//                object : PermissionsResultAction() {
+//                    override fun onGranted() {
+//                       Logger.i("onGranted")
+//                    }
+//
+//                    override fun onDenied(permission: String) {
+//                        Logger.i("msg---${permission}")
+//                    }
+//                })
     }
 
-    @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE)
     fun showPermission() {
         initLoggerDis()
     }
@@ -62,7 +64,6 @@ class MainActivity : BaseActivity() {
         onRequestPermissionsResult(requestCode, grantResults)
         PermissionsManager.getInstance().notifyPermissionsChange(permissions,grantResults)
     }
-
 
 
     private fun initLoggerDis() {
