@@ -16,7 +16,7 @@ class HomeFragment :BaseFragment(){
     }
 
     override fun init() {
-        CoroutineScopeStudy().parallel()
+        CoroutineScopeStudy().test2()
     }
 
     override fun getContentViewId(): Int {

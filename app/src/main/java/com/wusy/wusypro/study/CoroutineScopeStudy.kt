@@ -81,6 +81,7 @@ class CoroutineScopeStudy {
                 }
                 Log.i(TAG, "姓名：${value1.await()} 年龄：${value2.await()}")
                 Log.i(TAG, "结束执行")
+
             }
     }
 
@@ -91,8 +92,11 @@ class CoroutineScopeStudy {
         CoroutineScope(Job() + Dispatchers.IO)
             .launch {
                 //do something for http
+                val name = getName()
+                Log.i(TAG, "姓名：$name ")
                 withContext(Dispatchers.Main) {
                     //update UI
+                    Log.i(TAG, "姓名2：$name ")
                 }
             }
     }
